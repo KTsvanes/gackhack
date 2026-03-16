@@ -35,6 +35,21 @@ const expectedCustomers = [
     {time: "21:30", customers: 50}
 ]
 
-const maxEmpoloyees = 100
 
-console.log(expectedCustomers[0].customers) 
+function calculateEmployees(time) { 
+    const maxEmpoloyees = 100
+    const employeesPerCounter = 5
+    const numberOfCounters = 20 
+    const timePerCustomer = 10 // seconds
+    const timeGoal = 600 // seconds
+    const customers = expectedCustomers[time].customers // Fetches nr of customers for the given time
+    const countersOpen = customers * timePerCustomer / timeGoal // Calculates how many counters are needed
+    const employeesNeeded = Math.ceil(countersOpen) * employeesPerCounter // Calculates how many employees are based on the number of counters needed
+    const understaffed = employeesNeeded > maxEmpoloyees // Checks if the number of employees needed is more than the maximum allowed
+    return {employeesNeeded: Math.min(employeesNeeded, maxEmpoloyees), understaffed } // Returns the number of employees needed, but not more than the maximum 
+}
+
+for (let time = 0; time < expectedCustomers.length; time++) {
+    const { employeesNeeded, understaffed } = calculateEmployees(time);
+    console.log(`At ${expectedCustomers[time].time}, you need ${employeesNeeded} employees.${understaffed ? " (Understaffed)" : ""}`);
+}
