@@ -43,11 +43,9 @@ function calculateEmployees(time) {
     const timeGoal = 600 // seconds
     const customers = expectedCustomers[time].customers // Fetches nr of customers for the given time
     const countersOpen = Math.min(Math.ceil(customers * timePerCustomer / timeGoal), maxCounters) // Calculates how many counters are needed
-    console.log(`Counters open: ${countersOpen}`);
-    const queueTime = customers * timePerCustomer / countersOpen // Calculates how long the queue time will be 
+    const queueTime = Math.round(customers * timePerCustomer / countersOpen) // Calculates how long the queue time will be 
     const employeesNeeded = countersOpen * employeesPerCounter // Calculates how many employees are based on the number of counters needed
-    console.log(`Employees needed: ${employeesNeeded}`);
-    const understaffed = employeesNeeded > maxEmpoloyees // Checks if the number of employees needed is more than the maximum allowed
+    const understaffed = queueTime > timeGoal // Checks if the number of employees needed is more than the maximum allowed
     return {
         employeesNeeded: Math.min(employeesNeeded, maxEmpoloyees), // Returns the number of employees needed, but not more than the maximum
         understaffed, // True/False
@@ -66,4 +64,4 @@ for (let time = 0; time < expectedCustomers.length; time++) {
         queueHighest = queueTime;
     }
 }
-console.log(`The highest queue time is ${queueHighest} seconds.`)
+console.log(`The highest queue time is ${queueHighest} seconds at ${expectedCustomers.find(c => c.customers * 10 / Math.min(Math.ceil(c.customers * 10 / 600), 20) === queueHighest).time}.`);
