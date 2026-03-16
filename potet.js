@@ -1,0 +1,1 @@
+// Her skal vi skrive hackerkoden vår
