@@ -87,7 +87,7 @@ select.addEventListener("change", function(){ //Listens and waits for the dropdo
 
     //shows the results 
     result.innerHTML =`
-        <b> Time: </b> 
+        <b> Timestamp: </b> 
             ${time} 
             <br>
         <b> Customers: </b> 
