@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #f8f8f8;
+  --secondary-color: #333;
+  --accent-color: rgb(153,0,102);
+  --text-color: #000;
+  --text-border-color: #333;
+}
+
 body {
   background-image: url("Flyplass.webp");
   background-attachment: fixed;
@@ -6,17 +14,9 @@ body {
   background-repeat: no-repeat; /* unngå repetisjon */
   text-align: center;
 }
-.farge {
-  background-color:rgb(153,0,102);
-  border: solid black 2px;
-  border-radius: 10px;
-  align-self:center;
-  text-align: center;
-  width:60%;
-}
 
 .box {
-  background-color: #f8f8f8;
+  background-color: var(--primary-color);
   border: solid black 2px;
   border-radius: 10px;
   padding: 2%;       /* legger inn luft mellom kant og innhold */
@@ -29,12 +29,31 @@ body {
 }
 
 h1 {
+  margin: 0 20%;
+  background-color: var(--accent-color);
+  border: solid black 2px;
+  border-radius: 10px;
+  align-self:center;
+  text-align: center;
+  width:60%;
   font-weight: 1200;
   font-size: 6vw;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: white;
-  -webkit-text-stroke: 2px #000;
+  color: var(--primary-color);
+  -webkit-text-stroke: 2px var(--text-border-color);
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+p {
+  font-size: 1.5vw;
+  color: var(--text-color);
+}
+
+.dark-mode {
+  --primary-color: #333;
+  --secondary-color: #f8f8f8;
+  --accent-color: rgb(153,0,102);
+  --text-color: #fff;
 }
 
