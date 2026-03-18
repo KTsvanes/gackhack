@@ -107,8 +107,8 @@ select.addEventListener("change", function(){ //Listens and waits for the dropdo
             : "<span style='color:green'>OK</span>"} </b>
     `;
     // understaffed shows in red, and if not it shows in green
-    //b = bold font 
-    //br = break
+    //b = bold font, br = break, ? = hvis, : = ellers
+
 
 });
 
