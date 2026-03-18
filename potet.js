@@ -35,12 +35,14 @@ const expectedCustomers = [
     {time: "21:30", customers: 50}
 ]
 
+const maxEmpoloyees = 100
+const employeesPerCounter = 5
+const maxCounters = 20 
+const timePerCustomer = 10 // seconds
+const timeGoal = 600 // seconds
+
+
 function calculateEmployees(time) { 
-    const maxEmpoloyees = 100
-    const employeesPerCounter = 5
-    const maxCounters = 20 
-    const timePerCustomer = 10 // seconds
-    const timeGoal = 600 // seconds
     const customers = expectedCustomers[time].customers // Fetches nr of customers for the given time
     const countersOpen = Math.min(Math.ceil(customers * timePerCustomer / timeGoal), maxCounters) // Calculates how many counters are needed
     const queueTime = Math.round(customers * timePerCustomer / countersOpen) // Calculates how long the queue time will be 
@@ -79,23 +81,33 @@ select.addEventListener("change", function(){ //Listens and waits for the dropdo
         return;
     }
 
-    const {employeesNeeded, understaffed, queueTime} = calculateEmployees(index); //kjører funksjonen som beregner ansatte osv...
+    const {employeesNeeded, understaffed, queueTime,countersOpen} = calculateEmployees(index); //kjører funksjonen som beregner ansatte osv...
     const customers =expectedCustomers[index].customers; //fetches the total numbers of customers
     const time = expectedCustomers[index].time; //gets the timestamp
 
     //shows the results 
     result.innerHTML =`
-        <b>Time:</b> ${time} <br>
-        <b>Customers:</b> ${customers} <br>
-        <b>Employees:</b> ${employeesNeeded} <br>
-        <b>Queue time:</b> ${Math.round(queueTime / 60)} minutes <br>
-        ${understaffed 
+        <b> Time: </b> 
+            ${time} 
+            <br>
+        <b> Customers: </b> 
+            ${customers} 
+            <br>
+        <b> Employees: </b> 
+            ${employeesNeeded} 
+            <br>
+        <b> Counters open: </b> 
+            ${countersOpen} / ${maxCounters} 
+            <br>
+        <b> Queue time: </b> 
+            ${Math.round(queueTime / 60)} minutes 
+            <br>
+        <b> ${understaffed 
             ? "<span style='color:red'>Understaffed</span>" 
-            : "<span style='color:green'>OK</span>"}
+            : "<span style='color:green'>OK</span>"} </b>
     `;
     // understaffed shows in red, and if not it shows in green
     //b = bold font 
     //br = break
-
 
 });
