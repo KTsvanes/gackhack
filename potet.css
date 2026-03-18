@@ -1,8 +1,22 @@
-.body {
-    background-image: url("Flyplass.WEBP");
+body {
+  background-image: url("Flyplass.webp");
+  background-attachment: fixed;
+  background-size: cover;       /* fyller hele skjermen */
+  background-position: center;  /* sentrerer bildet */
+  background-repeat: no-repeat; /* unngå repetisjon */
+  text-align: center;
 }
 .farge {
 background-color:rgb(153,0,102);
 }
 
+h1 {
+  font-weight: 1200;
+  font-size: 6vw;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  -webkit-text-stroke: 2px #000;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
 
