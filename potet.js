@@ -64,4 +64,29 @@ for (let time = 0; time < expectedCustomers.length; time++) {
         queueHighest = queueTime;
     }
 }
-console.log(`The highest queue time is ${queueHighest} seconds at ${expectedCustomers.find(c => c.customers * 10 / Math.min(Math.ceil(c.customers * 10 / 600), 20) === queueHighest).time}.`);
+console.log(`The highest queue time is ${queueHighest} seconds.`)
+
+
+const select = document.getElementById("timeSelect");
+const result = document.getElementById("result");
+
+select.addEventListener("change", function(){
+    const index = this.value
+    if (index === "") {
+        result.textContent = "";
+        return;
+    }
+
+    const {employeesNeeded, understaffed, queueTime} = calculateEmployees(index);
+    const customers =expectedCustomers[index].customers;
+    const time = expectedCustomers[index].time;
+
+    result.innerHTML =`
+        <b>Time:</b> ${time} <br>
+        <b>Customers:</b> ${customers} <br>
+        <b>Employees:</b> ${employeesNeeded} <br>
+        <b>Queue time:</b> ${Math.round(queueTime)} sekunder <br>
+        ${understaffed ? "<span style='color:red'>Understaffed</span>" : "<span style='color:green'>OK</span>"}
+    `;
+
+});
