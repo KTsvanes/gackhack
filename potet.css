@@ -77,3 +77,23 @@ select {
 #dark-mode-button:hover {
   transform: scale(1.03);
 }
+
+
+#darth-Vader {
+  background: none;      
+  border: none;         
+  cursor: pointer;       
+  padding: 0.5vw;            
+  /* margin-right: 10px;    litt luft til neste element om nødvendig */
+}
+
+#darth-Vader img {
+  width: 5vw;           
+  height: auto;
+  transition: transform 0.2s;   /*  animasjon ved hover */
+}
+
+#darth-Vader:hover img {
+  transform: scale(1.1); 
+}
+

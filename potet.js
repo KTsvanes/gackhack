@@ -112,7 +112,8 @@ select.addEventListener("change", function(){ //Listens and waits for the dropdo
 
 });
 
-const darkModeButton = document.getElementById("dark-mode-button");
+const darkModeButton = document.getElementById("darth-Vader");
 darkModeButton.addEventListener("click", function() { //Listens and waits for the button to be clicked
     document.body.classList.toggle("dark-mode"); //Toggles the dark mode class on the body element
 });
+
