@@ -86,7 +86,7 @@ select.addEventListener("change", function(){
         <b>Time:</b> ${time} <br>
         <b>Customers:</b> ${customers} <br>
         <b>Employees:</b> ${employeesNeeded} <br>
-        <b>Counters open:</b> ${countersOpen} <br>
+        <b>Counters open:</b> ${countersOpen}/${maxCounters} <br>
         <b>Queue time:</b> ${Math.round(queueTime)} sekunder <br>
 
         ${understaffed ? "<span style='color:red'>Understaffed</span>" : "<span style='color:green'>OK</span>"}
