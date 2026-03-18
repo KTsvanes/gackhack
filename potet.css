@@ -7,7 +7,25 @@ body {
   text-align: center;
 }
 .farge {
-background-color:rgb(153,0,102);
+  background-color:rgb(153,0,102);
+  border: solid black 2px;
+  border-radius: 10px;
+  align-self:center;
+  text-align: center;
+  width:60%;
+}
+
+.box {
+  background-color: #f8f8f8;
+  border: solid black 2px;
+  border-radius: 10px;
+  padding: 2%;       /* legger inn luft mellom kant og innhold */
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-collapse: separate; 
+  border-spacing: 0;
+  margin: auto;   /* litt luft utenfor boksen */
+  max-width: 90%;
 }
 
 h1 {

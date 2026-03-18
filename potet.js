@@ -49,7 +49,8 @@ function calculateEmployees(time) {
     return {
         employeesNeeded: Math.min(employeesNeeded, maxEmpoloyees), // Returns the number of employees needed, but not more than the maximum
         understaffed, // True/False
-        queueTime // Queue time
+        queueTime, // Queue time
+        countersOpen // Counters open
     }
 }
 
