@@ -49,7 +49,8 @@ function calculateEmployees(time) {
     return {
         employeesNeeded: Math.min(employeesNeeded, maxEmpoloyees), // Returns the number of employees needed, but not more than the maximum
         understaffed, // True/False
-        queueTime // Queue time
+        queueTime, // Queue time
+        countersOpen // Counters open
     }
 }
 
@@ -77,7 +78,7 @@ select.addEventListener("change", function(){
         return;
     }
 
-    const {employeesNeeded, understaffed, queueTime} = calculateEmployees(index);
+    const {employeesNeeded, understaffed, queueTime, countersOpen} = calculateEmployees(index);
     const customers =expectedCustomers[index].customers;
     const time = expectedCustomers[index].time;
 
@@ -85,7 +86,9 @@ select.addEventListener("change", function(){
         <b>Time:</b> ${time} <br>
         <b>Customers:</b> ${customers} <br>
         <b>Employees:</b> ${employeesNeeded} <br>
+        <b>Counters open:</b> ${countersOpen} <br>
         <b>Queue time:</b> ${Math.round(queueTime)} sekunder <br>
+
         ${understaffed ? "<span style='color:red'>Understaffed</span>" : "<span style='color:green'>OK</span>"}
     `;
 
